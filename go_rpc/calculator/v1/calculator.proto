@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package calculator.v1;
+
+option go_package = "go_rpc/gen/calculator/v1;calculatorv1";
+
+message CalculatorRequest {
+  int64 ParamA = 1;
+  int64 ParamB = 2;
+  string Operator = 3;
+}
+
+
+message CalculatorResponse {
+  string Code=1;
+  string Msg=2;
+  string Result = 3;
+}
+
+service CalculatorService {
+  rpc Calculator(CalculatorRequest) returns (CalculatorResponse) {}
+}
